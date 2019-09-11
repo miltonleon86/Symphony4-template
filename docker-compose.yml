@@ -1,0 +1,38 @@
+version: '3.4'
+
+networks:
+  crosslend:
+    external:
+      name: crosslend
+
+services:
+  crosslend_phpfpm:
+    image: crosslend/phpfpm
+    build:
+      context: .
+      target: phpfpm
+      cache_from:
+        - crosslend/crosslend
+    networks:
+      - crosslend
+    env_file:
+      - .env
+      - .env.xdebug
+    volumes:
+      - ./:/srv/api:rw,cached
+
+  crosslend_nginx:
+    image: crosslend/nginx
+    build:
+      context: .
+      target: nginx
+      cache_from:
+        - crosslend/nginx
+    networks:
+      - crosslend
+    depends_on:
+      - crosslend_phpfpm
+    volumes:
+      - ./public:/srv/api/public:ro
+    environment:
+      - VIRTUAL_HOST=api.crosslend.develop

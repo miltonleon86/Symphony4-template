@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+composer clear-cache
+composer install --prefer-dist --no-progress --no-suggest --no-interaction --no-scripts
