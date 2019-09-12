@@ -3,7 +3,7 @@ version: '3.4'
 networks:
   crosslend:
     external:
-      name: crosslend
+      name: nginx_proxy_crosslend
 
 services:
   crosslend_phpfpm:

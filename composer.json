@@ -1,5 +1,4 @@
 {
-    "name": "crosslend challenge",
     "license": "MIT",
     "type": "project",
     "authors": [
@@ -15,17 +14,17 @@
         "php": "^7.2",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "doctrine/annotations": "^1.0",
+        "doctrine/doctrine-bundle": "^1.6",
+        "doctrine/orm": "^2.4.5",
+        "guzzlehttp/guzzle": "^6.3",
         "symfony/console": "*",
         "symfony/dotenv": "*",
         "symfony/flex": "^1.1",
         "symfony/framework-bundle": "*",
-        "symfony/yaml": "*",
+        "symfony/phpunit-bridge": "^4.3",
         "symfony/security-bundle": "*",
-        "doctrine/annotations": "^1.0",
-        "doctrine/doctrine-bundle": "^1.6",
-        "doctrine/orm": "^2.4.5",
-        "guzzlehttp/guzzle": "^6.3"
-
+        "symfony/yaml": "*"
     },
     "config": {
         "preferred-install": {

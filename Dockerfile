@@ -85,7 +85,6 @@ ARG APP_ENV=prod
 COPY composer.json composer.lock ./
 RUN set -eux; \
 	composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress --no-suggest;
-	composer clear-cache
 
 COPY . ./
 
@@ -107,6 +106,7 @@ LABEL org.label-schema.vcs-ref=$VCS_REF
 
 COPY docker/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf
 
+EXPOSE 80
 WORKDIR /srv/api
 
 COPY --from=phpfpm /srv/api/public public/

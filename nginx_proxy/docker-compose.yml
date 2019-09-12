@@ -1,0 +1,16 @@
+version: "3.4"
+networks:
+  crosslend:
+
+services:
+  nginx-proxy:
+    image: jwilder/nginx-proxy:alpine
+    restart: always
+    networks:
+      - crosslend
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./nginx-proxy.conf:/etc/nginx/proxy.conf
